@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import InstagramFeed from './components/InstagramFeed';
 import MenuSection from './components/MenuSection';
+import FloatingButtons from './components/FloatingButtons';
 
 const App: React.FC = () => {
   const [language, setLanguage] = useState<'en' | 'es'>('en');
@@ -107,6 +108,7 @@ const App: React.FC = () => {
       </main>
       <Footer />
       <ScrollToTopButton />
+      <FloatingButtons />
     </div>
   );
 };

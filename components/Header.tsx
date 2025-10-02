@@ -52,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ language, onLanguageChange }) => {
           </div>
           
           <a href="#" className="mt-2">
-            <img src="https://static.wixstatic.com/media/a9827a_12b833c77c9d4e209be718a584e25a80~mv2.png/v1/fill/w_250,h_250,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a9827a_12b833c77c9d4e209be718a584e25a80~mv2.png" alt="Mariscos Sol Del Mar Logo" className="h-40 md:h-48 w-auto" />
+            <img src="https://static.wixstatic.com/media/a9827a_12b833c77c9d4e209be718a584e25a80~mv2.png/v1/fill/w_250,h_250,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/a9827a_12b833c77c9d4e209be718a584e25a80~mv2.png" alt="Mariscos Sol Del Mar Logo" className="h-28 md:h-36 w-auto transition-transform hover:scale-105" />
           </a>
 
           <div className="absolute right-4 top-10 flex flex-col items-end gap-4">
