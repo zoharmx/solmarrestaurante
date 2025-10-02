@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         loop
         muted
         playsInline
-        className="absolute z-0 w-auto min-w-full min-h-full max-w-none object-cover opacity-60"
+        className="absolute z-0 w-auto min-w-full min-h-full max-w-none object-cover opacity-75"
       >
         <source
           src="https://video.wixstatic.com/video/a9827a_393fb64be87f4e56b0ce436f1c85aa1d/1080p/mp4/file.mp4"
@@ -31,14 +31,12 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         />
         Your browser does not support the video tag.
       </video>
-      
-      {/* Gradiente suave solo en el área del texto para mejor legibilidad */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-transparent"></div>
-      {/* Vignette sutil en los bordes */}
-      <div className="absolute inset-0 bg-radial-gradient"></div>
-      
+
+      {/* Overlay ligero solo para mejorar contraste del texto */}
+      <div className="absolute inset-0 bg-black/15"></div>
+
       <div className="relative z-20 text-center px-4 max-w-6xl mx-auto">
-        <div className="animate-fade-in-up backdrop-blur-sm bg-black/20 rounded-3xl p-8 md:p-12">
+        <div className="animate-fade-in-up backdrop-blur-sm bg-black/10 rounded-3xl p-8 md:p-12">
           <h1 className="font-anton font-black text-5xl md:text-7xl lg:text-8xl mb-2 uppercase tracking-tight">
             <span className="block text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)] [text-shadow:_2px_2px_4px_rgb(0_0_0_/_80%)]">
               MARISCOS
@@ -73,14 +71,6 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         }
         .animate-fade-in-up {
           animation: fade-in-up 1s ease-out forwards;
-        }
-        .bg-radial-gradient {
-          background: radial-gradient(
-            ellipse at center,
-            transparent 20%,
-            rgba(0, 0, 0, 0.3) 70%,
-            rgba(50, 50, 50, 0.6) 100%
-          );
         }
       `}</style>
     </section>
