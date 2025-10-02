@@ -1,7 +1,11 @@
-
 import React, { useState, useEffect } from 'react';
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  language: 'en' | 'es';
+  onLanguageChange: (lang: 'en' | 'es') => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ language, onLanguageChange }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -15,14 +19,14 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks1 = [
-    { label: 'HOME', href: '#' },
-    { label: 'OUR PLACE', href: '#' },
+    { label: language === 'en' ? 'HOME' : 'INICIO', href: '#' },
+    { label: language === 'en' ? 'OUR PLACE' : 'NUESTRO LUGAR', href: '#' },
   ];
   
   const navLinks2 = [
-    { label: 'MENU', href: '#' },
-    { label: 'BARRA', href: '#' },
-    { label: 'CONTACT', href: '#' },
+    { label: language === 'en' ? 'MENU' : 'MENÚ', href: '#' },
+    { label: language === 'en' ? 'BAR' : 'BARRA', href: '#' },
+    { label: language === 'en' ? 'CONTACT' : 'CONTACTO', href: '#' },
   ];
 
   return (
@@ -38,7 +42,11 @@ const Header: React.FC = () => {
               ))}
             </nav>
             <div className="relative hidden md:block">
-              <input type="search" placeholder="Search..." className="bg-black bg-opacity-80 text-white rounded-md py-2 pl-8 pr-3 w-64 focus:outline-none focus:ring-2 focus:ring-[#AE9A64]" />
+              <input 
+                type="search" 
+                placeholder={language === 'en' ? 'Search...' : 'Buscar...'} 
+                className="bg-black bg-opacity-80 text-white rounded-md py-2 pl-8 pr-3 w-64 focus:outline-none focus:ring-2 focus:ring-[#AE9A64]" 
+              />
               <i className="fa fa-search absolute left-2.5 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
             </div>
           </div>
@@ -56,15 +64,31 @@ const Header: React.FC = () => {
               ))}
             </nav>
             <div className="bg-black bg-opacity-80 rounded-md p-1 flex items-center text-sm">
-                <button className="font-poppins text-[#FFD756] font-bold py-1 px-3">EN</button>
-                <span className="text-gray-500">|</span>
-                <button className="font-poppins text-white hover:text-[#FFD756] py-1 px-3">ES</button>
+              <button 
+                onClick={() => onLanguageChange('en')}
+                className={`font-poppins font-bold py-1 px-3 transition-colors ${
+                  language === 'en' ? 'text-[#FFD756]' : 'text-white hover:text-[#FFD756]'
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-gray-500">|</span>
+              <button 
+                onClick={() => onLanguageChange('es')}
+                className={`font-poppins font-bold py-1 px-3 transition-colors ${
+                  language === 'es' ? 'text-[#FFD756]' : 'text-white hover:text-[#FFD756]'
+                }`}
+              >
+                ES
+              </button>
             </div>
           </div>
         </div>
       </div>
       <div className="bg-[#008AFC] py-2">
-        <p className="text-center font-oswald text-sm font-bold text-white tracking-wide">10007 Long Beach Blvd. Lynwood, CA. 90262</p>
+        <p className="text-center font-oswald text-sm font-bold text-white tracking-wide">
+          10007 Long Beach Blvd. Lynwood, CA. 90262
+        </p>
       </div>
     </header>
   );

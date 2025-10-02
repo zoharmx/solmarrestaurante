@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import LiveMusicSection from './components/LiveMusicSection';
@@ -9,11 +8,17 @@ import InstagramFeed from './components/InstagramFeed';
 import MenuSection from './components/MenuSection';
 
 const App: React.FC = () => {
+  const [language, setLanguage] = useState<'en' | 'es'>('en');
+
+  const handleLanguageChange = (lang: 'en' | 'es') => {
+    setLanguage(lang);
+  };
+
   return (
     <div className="bg-[#323232] text-white">
-      <Header />
+      <Header language={language} onLanguageChange={handleLanguageChange} />
       <main>
-        <Hero />
+        <Hero language={language} />
 
         {/* Feature Grid Section */}
         <section className="py-16 bg-[#008AFC]">
@@ -67,7 +72,7 @@ const App: React.FC = () => {
                         <p className="font-oswald text-lg text-[#AE9A64]">02</p>
                         <hr className="w-16 mx-auto my-2 border-[#AE9A64]" />
                         <h3 className="font-oswald text-xl text-[#F6F2E6] mb-4">All-Day Bar & Weekend Specials</h3>
-                        <p className="font-georgia text-base">Enjoy our full bar with handcrafted cocktails and beer buckets. Don’t miss our weekend drink specials and live music.</p>
+                        <p className="font-georgia text-base">Enjoy our full bar with handcrafted cocktails and beer buckets. Don't miss our weekend drink specials and live music.</p>
                     </div>
                     <div>
                         <p className="font-oswald text-lg text-[#AE9A64]">03</p>
