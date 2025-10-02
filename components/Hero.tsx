@@ -23,7 +23,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         loop
         muted
         playsInline
-        className="absolute z-0 w-auto min-w-full min-h-full max-w-none object-cover opacity-40"
+        className="absolute z-0 w-auto min-w-full min-h-full max-w-none object-cover opacity-80"
       >
         <source
           src="https://video.wixstatic.com/video/a9827a_393fb64be87f4e56b0ce436f1c85aa1d/1080p/mp4/file.mp4"
